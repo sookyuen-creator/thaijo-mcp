@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: thaijo-mcp
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.4
+      - key: THAIJO_MIN_INTERVAL
+        value: "6.5"
+      - key: TCI_TIERS_URL
+        sync: false   # (ไม่บังคับ) ลิงก์ Google Sheet ที่เผยแพร่เป็น CSV
